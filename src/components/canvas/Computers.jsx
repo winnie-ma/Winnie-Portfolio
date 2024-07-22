@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
@@ -7,9 +7,27 @@ import CanvasLoader from "../Loader";
 //color and intensity fades from the sky to the ground.
 //A point light is a kind of that gets emitted from a single light source in all directions, like light bulb in a room
 const Computers = ({ isMobile }) => {
+  //keep a reference to the mesh object. This allows us to access the object directly for cleanup.
+  const meshRef = useRef();
   const computer = useGLTF("./desktop_pc/scene.gltf");
+
+  useEffect(() => {
+    const mesh = meshRef.current;
+
+    return () => {
+      // Clean up: Dispose of geometry, material, and mesh
+      if (mesh) {
+        //Disposes of the geometry to free up GPU memory
+        mesh.geometry.dispose();
+        //Disposes of the material to free up GPU memory
+        mesh.material.dispose();
+        // No need to dispose of the mesh itself if it's not being used in other places
+      }
+    };
+  }, []);
+
   return (
-    <mesh>
+    <mesh ref={meshRef}>
       <hemisphereLight intensity={2} groundColor="black" />
       <spotLight
         position={[-20, 50, 10]}
@@ -44,7 +62,6 @@ const ComputersCanvas = () => {
 
     // Add the callback function as a listener for changes to the media query
     const handleMediaQueryChange = (event) => {
-      console.log(event.matches);
       setIsMobile(event.matches);
     };
 
