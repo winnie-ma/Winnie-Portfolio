@@ -1,3 +1,4 @@
+//realize animate while type is spring and slide from top
 export const textVariant = (delay) => {
   return {
     hidden: {
@@ -32,6 +33,21 @@ export const fadeIn = (direction, type, delay, duration) => {
         delay: delay,
         duration: duration,
         ease: "easeOut",
+      },
+    },
+  };
+};
+
+//animations of child components can be staggered by this duration (in seconds).
+//For instance, if staggerChildren is 0.01, the first child will be delayed by 0 seconds, the second by 0.01, the third by 0.02 and so on.
+//delayChildren: children animations will start after this duration
+export const staggerContainer = (staggerChildren, delayChildren) => {
+  return {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: staggerChildren,
+        delayChildren: delayChildren || 0,
       },
     },
   };

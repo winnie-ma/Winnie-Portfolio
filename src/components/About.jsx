@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 import { styles } from "../styles";
-import { fadeIn, textVariant } from "./utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 import { services } from "../constants";
+import { SectionWrapper } from "../hoc";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className="xs:w-[250px] w-full">
@@ -31,7 +32,6 @@ const About = () => {
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
-        <div></div>
       </motion.div>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
@@ -52,4 +52,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default SectionWrapper(About, "about");
