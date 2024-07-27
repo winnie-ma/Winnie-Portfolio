@@ -4,9 +4,9 @@ import { heroComputer } from "../assets";
 
 const Hero = () => {
   return (
-    <section className="w-full min-h-screen relative">
+    <section className="w-full h-screen min-h-[800px] relative flex flex-col pt-[120px] pb-[160px] justify-center">
       <div
-        className={`${styles.paddingX} pt-[120px] pb-[160px] flex flex-col justify-center h-full max-w-7xl mx-auto`}
+        className={`${styles.paddingX} flex flex-col justify-center h-full w-full max-w-7xl mx-auto`}
       >
         <div className="flex gap-5">
           <div className="flex flex-col items-center">

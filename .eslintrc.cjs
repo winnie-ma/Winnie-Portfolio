@@ -20,4 +20,20 @@ module.exports = {
     ],
     // "@react-three/no-clone-in-frame-loop": "error",
   },
+  overrides: [
+    {
+      rules: {
+        // 'react/jsx-no-undef': 'off',
+        // Disable the rule that causes unknown property warnings
+        // Add any other rule adjustments specific to the Computers.jsx file
+        "react/prop-types": "off",
+        "react/no-unknown-property": [
+          2,
+          {
+            ignore: "jsx",
+          },
+        ],
+      },
+    },
+  ],
 };
