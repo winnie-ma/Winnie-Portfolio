@@ -1,5 +1,6 @@
-import { mobile, backend, creator, web } from "../assets";
-export const navLinks = [
+import { mobile, backend, creator, web, slb, cyberay } from "../assets";
+
+const navLinks = [
   {
     id: "about",
     title: "About",
@@ -14,7 +15,7 @@ export const navLinks = [
   },
 ];
 
-export const services = [
+const services = [
   {
     title: "React Developer",
     icon: web,
@@ -32,3 +33,36 @@ export const services = [
     icon: creator,
   },
 ];
+
+const experiences = [
+  {
+    title: "Full-Stack Developer",
+    company_name: "Cyberay",
+    icon: cyberay,
+    iconBg: "#383E56",
+    date: "May 2023 - Present",
+    points: [
+      "Developing and maintaining SPA using React.js, MUI, Azure functions (NodeJS), MS SQL, and other related technologies.",
+      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "Developed RESTful APIS using NodeJS and Prisma ORM to connect with MS SQL database.",
+      "Participating in code reviews and providing constructive feedback to other developers.",
+    ],
+  },
+  {
+    title: "Front-end Software Engineer",
+    company_name: "SLB",
+    icon: slb,
+    iconBg: "#E6DEDD",
+    date: "Feb 2022 - Mar 2023",
+    points: [
+      "Developed user-friendly interfaces for data monitoring apps using Angular, TypeScript, Angular Material, igniteui-angular, and Apache Echarts.",
+      "Managed app state with NgRx and handled asynchronous operationsefficiently with RxJS.",
+      "Conducted unit tests using Jasmine and Karma, following BDD principles.",
+      "Collaborated with .NET Core developers for seamless integration of front-end and back-end solutions.",
+      "Realized UI automation with Playwright and Jenkins.",
+    ],
+  },
+];
+
+export { navLinks, services, experiences };
