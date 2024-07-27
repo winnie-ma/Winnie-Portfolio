@@ -1,4 +1,20 @@
-import { mobile, backend, creator, web, slb, cyberay } from "../assets";
+import {
+  mobile,
+  backend,
+  creator,
+  web,
+  slb,
+  cyberay,
+  javascript,
+  typescript,
+  html,
+  css,
+  reactjs,
+  redux,
+  tailwind,
+  nodejs,
+  mongodb,
+} from "../assets";
 
 const navLinks = [
   {
@@ -65,4 +81,43 @@ const experiences = [
   },
 ];
 
-export { navLinks, services, experiences };
+const technologies = [
+  {
+    name: "HTML5",
+    icon: html,
+  },
+  {
+    name: "CSS3",
+    icon: css,
+  },
+  {
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "TypeScript",
+    icon: typescript,
+  },
+  {
+    name: "ReactJS",
+    icon: reactjs,
+  },
+  {
+    name: "Redux Toolkit",
+    icon: redux,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: tailwind,
+  },
+  {
+    name: "Node JS",
+    icon: nodejs,
+  },
+  {
+    name: "MongoDB",
+    icon: mongodb,
+  },
+];
+
+export { navLinks, services, experiences, technologies };
