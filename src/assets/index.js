@@ -24,10 +24,10 @@ import threejs from "./tech/threejs.svg";
 import cyberay from "./company/cyberay.png";
 import slb from "./company/slb.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 import heroComputer from "./heroComputer.png";
+import derekWebsite from "./derekWebsite.png";
+
+import weatherApp from "./weatherApp.png";
 
 export {
   logo,
@@ -53,8 +53,7 @@ export {
   threejs,
   slb,
   cyberay,
-  carrent,
-  jobit,
-  tripguide,
+  weatherApp,
+  derekWebsite,
   heroComputer,
 };

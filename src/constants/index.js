@@ -14,6 +14,8 @@ import {
   tailwind,
   nodejs,
   mongodb,
+  weatherApp,
+  derekWebsite,
 } from "../assets";
 
 const navLinks = [
@@ -120,4 +122,45 @@ const technologies = [
   },
 ];
 
-export { navLinks, services, experiences, technologies };
+const projects = [
+  {
+    name: "Weather App",
+    description:
+      "a weather app that allows the user to search for a city and get the current weather and a 4 day forecast. The user can also click on a city in the search history to get the weather for that city again.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: weatherApp,
+    source_code_link: "https://github.com/winnie-ma/weather-app",
+  },
+  {
+    name: "Derek Personal Website",
+    description:
+      "A personal website that displays the person in terms of basic information, services, resume, portfolios.",
+    tags: [
+      {
+        name: "html",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "scss",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: derekWebsite,
+    source_code_link: "https://github.com/winnie-ma/Derek-Personal-Website",
+  },
+];
+
+export { navLinks, services, experiences, technologies, projects };
