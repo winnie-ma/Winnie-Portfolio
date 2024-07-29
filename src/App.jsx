@@ -21,9 +21,8 @@ const App = () => {
         <Experience />
         <Tech />
         <Works />
-        <div className="relative z-0">
+        <div className="bg-contact-section">
           <Contact />
-          <StarsCanvas />
         </div>
       </div>
     </BrowserRouter>

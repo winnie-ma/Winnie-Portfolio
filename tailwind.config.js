@@ -20,9 +20,9 @@ export default {
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",
+        "contact-section": "url('/src/assets/starSky.png')",
       },
     },
   },
   plugins: [],
-}
-
+};

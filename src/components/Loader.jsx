@@ -1,5 +1,6 @@
 import { Html, useProgress } from "@react-three/drei";
 
+//provide fallback when loading the 2d canvas
 const CanvasLoader = () => {
   const { progress } = useProgress();
   return (

@@ -38,6 +38,25 @@ export const fadeIn = (direction, type, delay, duration) => {
   };
 };
 
+export const slideIn = (direction, type, delay, duration) => {
+  return {
+    hidden: {
+      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
+      y: direction === "up" ? "100%" : direction === "down" ? "100%" : 0,
+    },
+    show: {
+      x: 0,
+      y: 0,
+      transition: {
+        type: type,
+        delay: delay,
+        duration: duration,
+        ease: "easeOut",
+      },
+    },
+  };
+};
+
 //animations of child components can be staggered by this duration (in seconds).
 //For instance, if staggerChildren is 0.01, the first child will be delayed by 0 seconds, the second by 0.01, the third by 0.02 and so on.
 //delayChildren: children animations will start after this duration

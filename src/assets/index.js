@@ -29,6 +29,8 @@ import derekWebsite from "./derekWebsite.png";
 
 import weatherApp from "./weatherApp.png";
 
+import starSky from "./starSky.png";
+
 export {
   logo,
   backend,
@@ -56,4 +58,5 @@ export {
   weatherApp,
   derekWebsite,
   heroComputer,
+  starSky,
 };
