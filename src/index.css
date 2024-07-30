@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/*define global styles that apply to the entire application (imported at main.jsx), like global gradient color class*/
+
 * {
   margin: 0;
   padding: 0;

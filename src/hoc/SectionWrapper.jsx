@@ -7,6 +7,7 @@ import { staggerContainer } from "../utils/motion";
 //1/4 number of the elements is in view.
 
 //idName here is just for scroll purpose
+
 const SectionWrapper = (Component, idName) =>
   function HOC() {
     return (

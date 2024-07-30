@@ -1,3 +1,5 @@
+//define some motion animate utils here
+
 //realize animate while type is spring and slide from top
 export const textVariant = (delay) => {
   return {

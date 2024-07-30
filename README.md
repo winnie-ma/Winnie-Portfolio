@@ -7,12 +7,15 @@ Hi, this is my portfolio. Please take a moment to explore my website, which show
 ## ⚙️ Tech Stack
 
 - React.js
-- Three.js
-- React Three Fiber
-- React Three Drei
+- Three.js (Javascript library for creating 3D web graphics on top of WebGL)
+- React Three Fiber (A React renderer for three.js.)
+- React Three Drei (A collection of useful helpers and abstractions for React Three Fiber)
 - Email JS
 - Vite
 - Tailwind CSS
+- Tilt
+- Vertical-timeline-component
+- Framer Motion (Motion library for React)
 
 ## 🔋 Features
 
@@ -75,6 +78,12 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 
 ## 🗂️ Folder Structure
 
+public folder to save some static assets that not processed by build like 3d file.
+assets folder save images used in components.
+constants folder save constants like experiences, projects object.
+utils save helper function of motions.
+hoc extract high order component sectionWrapper since each section have similar padding and motion.
+
 ```
 ├── README.md
 ├── index.html
@@ -116,6 +125,80 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 ```
 
 ## 🕸️ Snippets
+
+### Motion
+
+The core of Motion is the motion component. Think of it as a plain HTML or SVG element, supercharged with animation capabilities.
+
+Variants are sets of pre-defined targets. By giving a component and its children variants with matching names, whole React trees can be animated by changing a single prop.
+
+Elements can animate as they enter and leave the viewport with the handy whileInView and initial prop.
+
+```javascript
+<motion.section
+  variants={staggerContainer()}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.25 }}
+  className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+>
+  <span className="hash-span" id={idName}>
+    &nbsp;
+  </span>
+  <Component />
+</motion.section>
+```
+
+### 3D
+
+The 3d component basically composed of Scene and Camera and use renderer to draw the portion of the 3D scene.
+
+Scenes allow you to set up what is to be rendered by three.js and where it is in 3D coordinates.
+
+The Renderer displays the scene onto a HTML Canvas Element.
+
+The camera properties describe a Frustum which are the dimensions inside the scene that will be rendered while the fov, near, far, position define the Frustum area. [Frustum-Area](./images/canvasCamera.png)
+
+```javascript
+<const Earth = () => {
+  //get the scene material as an object
+  const earth = useGLTF("./planet/scene.gltf");
+
+  return (
+    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+  );
+};
+
+const EarthCanvas = () => {
+  return (
+    <Canvas
+      shadows
+      frameloop="demand"
+      dpr={[1, 2]}
+      gl={{ preserveDrawingBuffer: true }}
+      camera={{
+        fov: 45,
+        near: 0.1,
+        far: 200,
+        position: [-4, 3, 6],
+      }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          autoRotate
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Earth />
+        <Preload all />
+      </Suspense>
+    </Canvas>
+  );
+};
+
+export default EarthCanvas;
+```
 
 ## Contact
 

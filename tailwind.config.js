@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+//define some basic config and custom tailwind css, like we can use bg-hero-pattern in className
 export default {
   content: ["./src/**/*.{js,jsx}"],
   mode: "jit",
