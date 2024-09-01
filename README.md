@@ -2,7 +2,7 @@
 
 ## 🤖 Introduction
 
-Hi, this is my portfolio. Please take a moment to explore my website, which showcases my projects, work experience, technical skills, and more.
+Hi, this is my portfolio. Please take a moment to explore my website, which showcases my projects, work experience, technical skills, and more: [winnie-portfolio](https://d32b2grfs4db29.cloudfront.net/)
 
 ## ⚙️ Tech Stack
 
@@ -199,6 +199,59 @@ const EarthCanvas = () => {
 
 export default EarthCanvas;
 ```
+
+## ♾ Website hosting
+
+### Stacks (AWS)
+
+- S3
+- CloudFront
+- ACM
+- Router 53 (to be continued)
+
+### S3 and steps
+
+It is a cloud-based storage service provided by AWS, it allows users to store and retrieve data over the Internet while it can be used to store a variety of data types including object, documents and multimedia content.
+
+1. Create Bucket: Once logged in AWS account. search for S3 service and create bucket while specifying bucket name and time zone.
+
+2. Configuration: Enable Static Website Hosting, select host a static website and use index.html as index document. Uncheck the "block all public access" and check the acknowledgment, then leave the rest of the configuration as default. Click on the permission tab in your S3 bucket, click on edit permission, and paste the below Json configuration:
+   {
+   “Version”: “2012–10–17”,
+   “Statement”: [
+   {
+   “Sid”: “PublicReadGetObject”,
+   “Effect”: “Allow”,
+   “Principal”: “*”,
+   “Action”: “s3:GetObject”,
+   “Resource”: “arn:aws:s3:::{BUCKET}/*”
+   }
+   ]
+   }
+
+3. Upload file manually: After finishing the configuration, then on local code terminal, run `npm run build` to get the built files and click on " add files" to updated these built files.
+
+4. Access website: You should now be able to access your website at the link provided on your screen. It will look something like: http://yourbucketname.s3-website.eu-west-2.amazonaws.com.
+
+### CloudFront and steps
+
+CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds.
+
+1. Create a CloudFront Distribution: Go to the CloudFront console and create a new distribution. Select your S3 bucket as the origin. Remember to specify the same S3 bucket you used to upload your React app.
+
+2. Configure Settings: Choose the settings based on your requirements. For a React app, make sure to handle custom error responses. You may want to set up a custom error response for 404 errors to redirect to index.html with a 200 status code, ensuring smooth SPA navigation.
+
+3. SSL and Custom Domain: CloudFront offers a free SSL/TLS certificate, which you can use to serve your content over HTTPS. You can use ACM to do the certificate request. Additionally, if you have a custom domain, you can configure it in CloudFront and use AWS Route 53 to point your domain to your CloudFront distribution.
+
+### Router 53 and steps (To be continued)
+
+AWS Route 53 is a scalable and highly available Domain Name System (DNS) web service. It's designed to give developers an extremely reliable and cost-effective way to route end users to Internet applications hosted on AWS. Route 53 can be easily integrated with AWS services like CloudFront, making it simple to set up DNS records to route traffic to your CDN.
+
+1. Create a Hosted Zone: In the Route 53 console, create a new hosted zone for your domain. This will generate four DNS servers that you'll need to update in your domain registrar's settings.
+
+2. Create Record Sets: Within your hosted zone, create record sets pointing to your CloudFront distribution. For a basic setup, you'll need an A record using an Alias that points to your CloudFront distribution domain name.
+
+3. Update Domain Registrar: Update the DNS settings at your domain registrar to use the DNS servers provided by Route 53. This ensures that your domain properly routes traffic to your CloudFront distribution.
 
 ## 🔗 Links
 
